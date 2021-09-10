@@ -1,0 +1,19 @@
+fatal error: fault
+runtime.throw
+runtime.sigpanic
+strconv.appendQuotedWith
+strconv.AppendQuote
+fmt.(*fmt).fmtQ
+fmt.(*pp).fmtString
+fmt.(*pp).printValue
+fmt.(*pp).printValue
+fmt.(*pp).printValue
+fmt.(*pp).printArg
+fmt.(*pp).doPrintf
+fmt.Fprintf
+fmt.Printf
+sfuzz.Fuzz
+go-fuzz-dep.Main
+main.main
+runtime.main
+runtime.goexit

@@ -1,0 +1,42 @@
+unexpected fault address 0x15f9000
+fatal error: fault
+[signal SIGBUS: bus error code=0x2 addr=0x15f9000 pc=0x1098f5e]
+
+goroutine 1 [running]:
+runtime.throw(0x1365ce9, 0x5)
+	runtime/panic.go:1117 +0x72 fp=0xc0004f33f8 sp=0xc0004f33c8 pc=0x1034392
+runtime.sigpanic()
+	runtime/signal_unix.go:731 +0x2d6 fp=0xc0004f3430 sp=0xc0004f33f8 pc=0x1049336
+strconv.appendQuotedWith(0xc0004a37f8, 0x3372e6, 0x1503742, 0x15f9000, 0x140b590, 0xc000000022, 0x15216e0, 0xc0004f3528, 0x10b4b1b)
+	/usr/local/go1.16/src/strconv/quote.go:37 +0x11e fp=0xc0004f34b0 sp=0xc0004f3430 pc=0x1098f5e
+strconv.AppendQuote(...)
+	/usr/local/go1.16/src/strconv/quote.go:131
+fmt.(*fmt).fmtQ(0xc0004a37d0, 0x1500e50, 0x1503740)
+	/usr/local/go1.16/src/fmt/format.go:457 +0x1c5 fp=0xc0004f3538 sp=0xc0004f34b0 pc=0x10d1cc5
+fmt.(*pp).fmtString(0xc0004a3790, 0x1500e50, 0x1503740, 0x76)
+	/usr/local/go1.16/src/fmt/print.go:441 +0x1bb fp=0xc0004f3588 sp=0xc0004f3538 pc=0x10d61bb
+fmt.(*pp).printValue(0xc0004a3790, 0x1332d20, 0x15216e0, 0x198, 0x76, 0x2)
+	/usr/local/go1.16/src/fmt/print.go:757 +0x2ca6 fp=0xc0004f3748 sp=0xc0004f3588 pc=0x10dc126
+fmt.(*pp).printValue(0xc0004a3790, 0x1342100, 0x15216c8, 0x199, 0x76, 0x1)
+	/usr/local/go1.16/src/fmt/print.go:806 +0x23d7 fp=0xc0004f3908 sp=0xc0004f3748 pc=0x10db857
+fmt.(*pp).printValue(0xc0004a3790, 0x1338600, 0x15216c8, 0x16, 0x76, 0x0)
+	/usr/local/go1.16/src/fmt/print.go:876 +0x2125 fp=0xc0004f3ac8 sp=0xc0004f3908 pc=0x10db5a5
+fmt.(*pp).printArg(0xc0004a3790, 0x1338600, 0x15216c8, 0x76)
+	/usr/local/go1.16/src/fmt/print.go:712 +0x353 fp=0xc0004f3b40 sp=0xc0004f3ac8 pc=0x10d89b3
+fmt.(*pp).doPrintf(0xc0004a3790, 0x1377e07, 0x31, 0xc0004f3e70, 0x3, 0x3)
+	/usr/local/go1.16/src/fmt/print.go:1026 +0x39a fp=0xc0004f3c18 sp=0xc0004f3b40 pc=0x10dd7ba
+fmt.Fprintf(0x13d3ca0, 0xc00000e018, 0x1377e07, 0x31, 0xc0004f3e70, 0x3, 0x3, 0x0, 0x3578302d65394646, 0x3478302c2c323230)
+	/usr/local/go1.16/src/fmt/print.go:204 +0x8a fp=0xc0004f3c80 sp=0xc0004f3c18 pc=0x10d400a
+fmt.Printf(...)
+	/usr/local/go1.16/src/fmt/print.go:213
+sonic-fuzz/sonic-fuzz.Fuzz(0x8c61000, 0x3f, 0x3f, 0x3)
+	/Users/bytedance/review/sonic-fuzz/sonic-fuzz/sonic.go:28 +0xc13 fp=0xc0004f3eb0 sp=0xc0004f3c80 pc=0x131e3f3
+go-fuzz-dep.Main(0xc0004f3f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8 fp=0xc0004f3f58 sp=0xc0004f3eb0 pc=0x1085198
+main.main()
+	sonic-fuzz/sonic-fuzz/go.fuzz.main/main.go:15 +0x52 fp=0xc0004f3f88 sp=0xc0004f3f58 pc=0x131e6f2
+runtime.main()
+	runtime/proc.go:227 +0x256 fp=0xc0004f3fe0 sp=0xc0004f3f88 pc=0x1036bb6
+runtime.goexit()
+	runtime/asm_amd64.s:1371 +0x1 fp=0xc0004f3fe8 sp=0xc0004f3fe0 pc=0x10668e1
+exit status 2

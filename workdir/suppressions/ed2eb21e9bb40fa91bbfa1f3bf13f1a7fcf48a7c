@@ -1,0 +1,7 @@
+fatal error: found pointer to free object
+runtime.throw
+runtime.(*mspan).reportZombies
+runtime.(*mspan).sweep
+runtime.sweepone
+runtime.bgsweep
+runtime.goexit

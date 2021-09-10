@@ -1,0 +1,15 @@
+Marshal (*interface {})(0xc000010020)
+ want out:
+ "{\"\":{},\"00\":{}}"
+ get out:
+ "{\"00\":{},\"\":{}}"
+panic: Sonic Marshal Error
+
+goroutine 1 [running]:
+sfuzz.Fuzz(0x2dc1000, 0xf, 0xf, 0x4)
+	/Users/bytedance/review/sonic-fuzz/fuzz/fuzz.go:50 +0x865
+go-fuzz-dep.Main(0xc0001e7f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	sfuzz/go.fuzz.main/main.go:15 +0x52
+exit status 2

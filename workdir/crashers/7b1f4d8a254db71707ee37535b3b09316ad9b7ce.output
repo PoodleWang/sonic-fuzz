@@ -1,0 +1,15 @@
+Marshal (*interface {})(0xc000010880)
+ want out:
+ "{\"\":{},\"E\":{}}"
+ get out:
+ "{\"E\":{},\"\":{}}"
+panic: Sonic Marshal Error
+
+goroutine 1 [running]:
+sonic.Fuzz(0x8d81000, 0xe, 0xe, 0x3)
+	/Users/bytedance/review/sonic-fuzz/sonic.go:50 +0x865
+go-fuzz-dep.Main(0xc000735f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	sonic/go.fuzz.main/main.go:15 +0x52
+exit status 2

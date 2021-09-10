@@ -1,0 +1,4 @@
+panic: Sonic Marshal Error
+sonic.Fuzz
+go-fuzz-dep.Main
+main.main

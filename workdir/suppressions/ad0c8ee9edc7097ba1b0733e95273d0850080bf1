@@ -1,0 +1,4 @@
+panic: json: unsupported value: NaN or ±Infinite
+sonic-fuzz/fuzz.Fuzz
+go-fuzz-dep.Main
+main.main

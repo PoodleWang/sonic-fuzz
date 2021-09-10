@@ -1,0 +1,15 @@
+Unmarshal []byte{0x22, 0xc7, 0x22}
+ want obj:
+ (*interface {})(0xc000010200)
+ get obj:
+ (*interface {})(0xc0000101f0)
+panic: Sonic Unmarshal Error
+
+goroutine 1 [running]:
+sonic.Fuzz(0x6e01000, 0x3, 0x3, 0x4)
+	/Users/bytedance/review/sonic-fuzz/sonic.go:33 +0xb49
+go-fuzz-dep.Main(0xc000251f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	sonic/go.fuzz.main/main.go:15 +0x52
+exit status 2

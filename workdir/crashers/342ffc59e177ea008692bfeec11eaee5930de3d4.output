@@ -1,0 +1,11 @@
+v=(*interface {})(0xc000010650)
+panic: json: unsupported value: NaN or ±Infinite
+
+goroutine 1 [running]:
+sonic-fuzz/fuzz.Fuzz(0x8c21000, 0x5, 0x5, 0x4)
+	/Users/bytedance/review/sonic-fuzz/fuzz/json.go:25 +0x5dc
+go-fuzz-dep.Main(0xc000269f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	sonic-fuzz/fuzz/go.fuzz.main/main.go:15 +0x52
+exit status 2

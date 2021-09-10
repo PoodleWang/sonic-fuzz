@@ -1,0 +1,91 @@
+program hanged (timeout 10 seconds)
+
+SIGABRT: abort
+PC=0x1067513 m=0 sigcode=0
+
+goroutine 1 [running]:
+runtime.memclrNoHeapPointers(0xc00017e000, 0x10000)
+	runtime/memclr_amd64.s:78 +0x113 fp=0xc00055d4b8 sp=0xc00055d4b0 pc=0x1067513
+runtime.(*mheap).alloc(0x15890e0, 0x8, 0x102017e, 0x159f1f0)
+	runtime/mheap.go:915 +0xd5 fp=0xc00055d508 sp=0xc00055d4b8 pc=0x1026895
+runtime.(*mcentral).grow(0x159f198, 0x0)
+	runtime/mcentral.go:232 +0x79 fp=0xc00055d550 sp=0xc00055d508 pc=0x1017db9
+runtime.(*mcentral).cacheSpan(0x159f198, 0x169d648)
+	runtime/mcentral.go:158 +0x2ff fp=0xc00055d5a8 sp=0xc00055d550 pc=0x1017b9f
+runtime.(*mcache).refill(0x161b108, 0x7e)
+	runtime/mcache.go:162 +0xaa fp=0xc00055d5f0 sp=0xc00055d5a8 pc=0x10170aa
+runtime.(*mcache).nextFree(0x161b108, 0x20307e, 0x203000, 0x203000, 0x1)
+	runtime/malloc.go:882 +0x8d fp=0xc00055d628 sp=0xc00055d5f0 pc=0x100cb6d
+runtime.mallocgc(0x5500, 0x134b600, 0x1, 0x161b108)
+	runtime/malloc.go:1069 +0x850 fp=0xc00055d6b0 sp=0xc00055d628 pc=0x100d570
+runtime.newarray(0x134b600, 0x88, 0x0)
+	runtime/malloc.go:1199 +0x65 fp=0xc00055d6e0 sp=0xc00055d6b0 pc=0x100d865
+runtime.makeBucketArray(0x133a6a0, 0xc0000a1c07, 0x0, 0xc00055d758, 0x1013997)
+	runtime/map.go:362 +0x199 fp=0xc00055d718 sp=0xc00055d6e0 pc=0x100e7f9
+runtime.hashGrow(0x133a6a0, 0xc00007cf60)
+	runtime/map.go:1036 +0x89 fp=0xc00055d768 sp=0xc00055d718 pc=0x10102c9
+runtime.mapassign_faststr(0x133a6a0, 0xc00007cf60, 0x136433f, 0x4, 0xc0000a1c0e)
+	runtime/map_faststr.go:272 +0x10a fp=0xc00055d7d0 sp=0xc00055d768 pc=0x10131ea
+github.com/twitchyliquid64/golang-asm/asm/arch.archX86(0x1522e80, 0x5)
+	/Users/bytedance/go1.16/pkg/mod/github.com/twitchyliquid64/golang-asm@v0.15.1/asm/arch/arch.go:120 +0xf2d fp=0xc00055d840 sp=0xc00055d7d0 pc=0x1244e4d
+github.com/twitchyliquid64/golang-asm/asm/arch.Set(0x1365cc1, 0x5, 0x1332d20)
+	/Users/bytedance/go1.16/pkg/mod/github.com/twitchyliquid64/golang-asm@v0.15.1/asm/arch/arch.go:58 +0x285 fp=0xc00055d878 sp=0xc00055d840 pc=0x1243665
+github.com/bytedance/sonic/internal/jit.newBackend(0x1365cc1, 0x5, 0x1346480)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/internal/jit/backend.go:60 +0x6b fp=0xc00055d8a8 sp=0xc00055d878 pc=0x125094b
+github.com/bytedance/sonic/internal/jit.(*BaseAssembler).init(...)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/internal/jit/assembler_amd64.go:213
+github.com/bytedance/sonic/internal/jit.(*BaseAssembler).build.func1()
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/internal/jit/assembler_amd64.go:221 +0x5c fp=0xc00055d8e0 sp=0xc00055d8a8 pc=0x1250efc
+sync.(*Once).doSlow(0xc000148aa8, 0xc00055d940)
+	sync/once.go:68 +0xec fp=0xc00055d930 sp=0xc00055d8e0 pc=0x106be0c
+sync.(*Once).Do(...)
+	sync/once.go:59
+github.com/bytedance/sonic/internal/jit.(*BaseAssembler).build(0xc000148a80)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/internal/jit/assembler_amd64.go:220 +0x7d fp=0xc00055d960 sp=0xc00055d930 pc=0x12501fd
+github.com/bytedance/sonic/internal/jit.(*BaseAssembler).Load(0xc000148a80, 0x136beff, 0xc, 0x98, 0x30, 0xc00055da01)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/internal/jit/assembler_amd64.go:206 +0x45 fp=0xc00055d9b0 sp=0xc00055d960 pc=0x1250105
+github.com/bytedance/sonic/encoder.(*_Assembler).Load(0xc000148a80, 0xc000010790)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/encoder/assembler_amd64.go:182 +0x70 fp=0xc00055d9f8 sp=0xc00055d9b0 pc=0x12e8df0
+github.com/bytedance/sonic/encoder.findOrCompile(0x132b3a0, 0x0, 0xc00055db98, 0x100d7d8)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/encoder/pools.go:115 +0x388 fp=0xc00055db58 sp=0xc00055d9f8 pc=0x1314b08
+github.com/bytedance/sonic/encoder.encodeTypedPointer(0xc00000c408, 0x132b3a0, 0xc000010748, 0xc000580000, 0x0, 0xc00000c300, 0xc00055dc08)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/encoder/primitives.go:72 +0x139 fp=0xc00055dba8 sp=0xc00055db58 pc=0x13150b9
+github.com/bytedance/sonic/encoder.EncodeInto(0xc00000c408, 0x132b3a0, 0xc00000c378, 0x0, 0x0, 0x30)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/encoder/encoder.go:101 +0xdc fp=0xc00055dc18 sp=0xc00055dba8 pc=0x13128fc
+github.com/bytedance/sonic/encoder.Encode(0x132b3a0, 0xc00000c378, 0x0, 0x25, 0x30, 0x0, 0x0, 0x0)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/encoder/encoder.go:79 +0xb0 fp=0xc00055dc80 sp=0xc00055dc18 pc=0x1312610
+github.com/bytedance/sonic.Marshal(...)
+	/Users/bytedance/go1.16/pkg/mod/github.com/bytedance/sonic@v0.0.0-20210907061406-6aff4b1ad6d9/sonic.go:35
+sfuzz.Fuzz(0x2900b000, 0x25, 0x25, 0x3)
+	/Users/bytedance/review/sonic-fuzz/fuzz/fuzz.go:39 +0x3f2 fp=0xc00055deb0 sp=0xc00055dc80 pc=0x131dbd2
+go-fuzz-dep.Main(0xc00055df70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8 fp=0xc00055df58 sp=0xc00055deb0 pc=0x1085198
+main.main()
+	sfuzz/go.fuzz.main/main.go:15 +0x52 fp=0xc00055df88 sp=0xc00055df58 pc=0x131e6f2
+runtime.main()
+	runtime/proc.go:227 +0x256 fp=0xc00055dfe0 sp=0xc00055df88 pc=0x1036bb6
+runtime.goexit()
+	runtime/asm_amd64.s:1371 +0x1 fp=0xc00055dfe8 sp=0xc00055dfe0 pc=0x10668e1
+
+rax    0x0
+rbx    0xf000
+rcx    0xc00017e000
+rdx    0x31b
+rdi    0xc00017f000
+rsi    0x80
+rbp    0xc00055d4f8
+rsp    0xc00055d4b0
+r8     0xc00017e000
+r9     0x169e390
+r10    0x8
+r11    0xc6
+r12    0x7
+r13    0x0
+r14    0x3
+r15    0x3
+rip    0x1067513
+rflags 0x10202
+cs     0x2b
+fs     0x0
+gs     0x0
+exit status 2

@@ -1,0 +1,15 @@
+Unmarshal []byte{0x5b, 0x36, 0x65, 0x33, 0x31, 0x30, 0x5d}
+ want error:
+ &json.UnmarshalTypeError{Value:"number 6e310", Type:(*reflect.rtype)(0x1331da0), Offset:7, Struct:"", Field:""}
+ get error:
+ <nil>
+panic: Sonic Unmarshal Error
+
+goroutine 1 [running]:
+sonic-fuzz/sonic-fuzz.Fuzz(0x90c1000, 0x7, 0x7, 0x3)
+	/Users/bytedance/review/sonic-fuzz/sonic-fuzz/sonic.go:23 +0xd15
+go-fuzz-dep.Main(0xc0001f1f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	sonic-fuzz/sonic-fuzz/go.fuzz.main/main.go:15 +0x52
+exit status 2
